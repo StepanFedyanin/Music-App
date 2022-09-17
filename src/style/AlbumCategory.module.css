@@ -1,0 +1,57 @@
+.albomCategory{
+	position: relative;
+	height: max-content;
+}
+
+.albomContent{
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+	position: absolute;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 19px 28px 28px 28px;
+}
+.albomTools{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+.albomLisen{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.albomChoice{
+	display: flex;
+	align-items: center;
+}
+.albomFavorites{
+	margin-right: 20px;
+}
+.albomNavItem{
+	padding: 3px 0;
+}
+.albomNavEl{
+	font-weight: 400;
+	font-size: 11.4452px;
+	line-height: 14px;
+	color: #AFB6B3;
+}
+.albomExecutor{
+	color: #FAFAFA;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 22.8904px;}
+.albomTitle{
+	color: #FAFAFA;
+	font-size: 38.1507px;
+	font-weight: 700;
+	font-style: normal;
+}
+
+
