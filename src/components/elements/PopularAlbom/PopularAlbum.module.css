@@ -1,0 +1,47 @@
+.PopularAlbum{
+	width: 22%;
+	box-sizing: border-box;
+	/* margin: 15px ; */
+}
+.PopularAlbumContent{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.AlbumInfo{
+	position: relative;
+	max-width: 100%;
+	border-radius: 20px;
+	overflow: hidden;
+	cursor: pointer;
+}
+.AlbumInfo:hover .PhotoAlbum{
+	filter:brightness(0.3);
+}
+.PhotoAlbumCover{
+	width: 100%;
+}
+.descriptionAlbum{
+	position: absolute;
+	bottom: 0;
+	padding: 12px 8px;
+	display: none;
+}
+.AlbumInfo:hover .descriptionAlbum{
+	display: block;
+	max-height: 100%;
+	overflow-y: scroll;
+}
+
+.nameAlbumStyle{
+	color: #E4E7E6;
+	font-size: 18px;
+}
+.executorAlbumStyle{
+	font-size: 16px;
+	color: #AFB6B3;
+}
+.descriptionAlbumStyle{
+	font-size: 14px;
+	color: #AFB6B3;
+}

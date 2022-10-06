@@ -1,0 +1,42 @@
+.serch{
+	width: 30vw;
+	display: flex;
+	align-items: center;
+	padding: 13px;
+	background: #212121;
+	opacity: 0.9;
+	height: max-content;
+	border-radius: 4.76884px;
+	color: #ffffff;
+}
+@media (max-width:980px) {
+	.serch{
+		width: 40vw;;
+	}
+}
+@media (max-width:768px) {
+	.serch{
+		width: 60vw;;
+	}
+}
+@media (max-width:540px) {
+	.serch{
+		width: 70vw;;
+	}
+}
+.serchIcon{
+	width: 28px;
+	padding-right: 10px;
+	border-right: 2px solid #959D99;;
+}
+.serchBlock{
+	width: 100%;
+	padding-left: 10px	;
+}
+.serchInput{
+	width: 100%;
+}@media (max-width:540px) {
+	.serch{
+		padding: 5px 10px;
+	}
+}

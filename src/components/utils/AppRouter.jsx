@@ -10,7 +10,7 @@ const AppRouter = () => {
 					<Route path={el.path} element={el.element} key={el.path} />
 				)
 			}
-			<Route path="*" element={<HomePage />} />
+			<Route path={"*" || "/homePage"} element={<HomePage />} />
 		</Routes>
 
 	)

@@ -1,0 +1,170 @@
+.navbar{
+	display: flex;
+	flex-direction: column;
+	width: 23%;
+	height: 100vh;
+	padding: 14px 0 0 0;
+	position: relative;
+	background-color: #212121;
+	position: fixed;
+}
+
+.logo{
+	padding: 14px 0 50px 45px;
+}
+.list{
+	display: flex;
+	flex-direction: column;
+}
+.listitem{
+	display: flex;
+	align-items: center;
+	padding: 10px 0;
+	padding: 10px 0 10px 45px;
+}
+.listitem:hover{
+	/* background: #0167FF;
+	opacity: 0.06; */
+	background-color: rgba(1, 103, 255, 6%);
+}
+.itemactive{
+	border-right: 4px solid #0167FF;
+	display: flex;
+	align-items: center;
+	padding: 10px 0;
+	padding: 10px 0 10px 45px;
+	background-color: rgb(1 103 255 / 16%);
+}
+@media (max-width:540px) {
+	.navLIstItems{
+		height: 100%;
+	}
+	.navLIstItem{
+		width: 25%;
+	}
+	.listitem{
+		display: flex;
+		justify-content: center;
+	}
+	.itemactive{
+		display: flex;
+		justify-content: center;
+		border: none;
+		padding: 0;
+		background-color: rgb(1 103 255 / 16%);
+		height: 100%;
+		border-radius: 20px;
+	}
+}
+.itemicon{
+	width: 20px;
+}
+.itemblock{
+	padding: 0 0 0 15px ;
+}
+.itemtext{
+	font-size: calc(16px + (4 + 4 * 0.7) *((100vw - 320px )/1920));
+	color: #FFFFFF;
+	opacity: 0.72;
+}
+.burger{
+	width: 40px;
+	height: 30px;
+	position: relative;
+	z-index: 15;
+	display: none;
+}
+.burger span{
+	position: absolute;
+	background-color: #0167FF;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	border-radius: 3.81507px;
+	top: 13px;
+}
+.burger::before,.burger::after{
+	content: ' ';
+	background-color: #0167FF;
+	position: absolute;
+	width: 100%;
+	height: 4px;
+	border-radius: 10px;
+	left: 0;
+}
+.burger::before{
+	bottom: 0;
+}
+.burger::after{
+	top: 0;
+}
+@media (max-width:980px) {
+	.navbar{
+		width: 30%;
+	}
+
+}
+@media (max-width:768px) {
+.navbar{
+	flex-direction: row;
+	justify-content: space-between;
+	position:static;
+	height: fit-content;
+	width: 100%;
+	padding: 10px 10px;
+	position: fixed;
+	z-index: 10;
+}
+.listitem{
+	padding: 0 0 0 0;
+}
+.burger{
+	display: block;
+}
+.navList{
+	top: 60px;
+	position: fixed;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background-color: #212121;
+	z-index: 30;
+	transition: all 0.4s ease 0s;
+}
+.navList.active{
+	left: 0;
+	transition: all 0.4s ease 0s;
+}
+.listitem{
+	padding: 5px 10px;
+	margin: 5px 10px;
+}
+.logo{
+	padding: 0 ;
+}
+}
+@media (max-width:540px) {
+	.navbar{
+		bottom: 0;
+	}
+	.logo, .burger, .itemblock{
+		display: none;
+	}
+	.navList{
+		position: static;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: #212121;
+		z-index: 30;
+		transition: all 0.4s ease 0s;
+	}
+	.navLIstItems{
+		display: flex;
+		justify-content: space-between;
+	}
+	.listitemHide{
+		display: none;
+	}
+}
+

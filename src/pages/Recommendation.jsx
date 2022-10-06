@@ -1,6 +1,6 @@
 import React from 'react'
-import NavBarLeft from '../components/elements/NavBarLeft'
-import TrackNav from '../components/elements/TrackNav'
+import NavBarLeft from '../components/elements/NavBarLeft/NavBarLeft'
+import TrackNav from '../components/elements/TrackNav/TrackNav'
 
 function Recommendation() {
 	return (

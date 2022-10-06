@@ -1,0 +1,72 @@
+.trackItem{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #313533;
+	padding: 5px 7px;
+	margin: 7px 0;
+
+}
+.trackItem:hover{
+	background-color: rgba(1, 103, 255, 0.1);
+
+}
+.trackInfo{
+	display: flex;
+	align-items: center;
+}
+.trackImg{
+	max-width: 60px;
+	width: calc((100vh/100)*10);
+	min-width: 30px;
+	margin: 0 15px 0 10px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+.trackIndex{
+	color: #AFB6B2;
+}
+.trackTitle{
+	font-style: normal;
+	font-weight: 600;
+	font-size: calc(13px + (2 + 2 * 0.7) *((100vw - 320px )/1920));
+	line-height: 18px;
+	color: #FAFAFA;
+}
+.trackExecutor{
+	font-style: normal;
+	font-weight: 400;
+	font-size: calc(12px + (1 + 1 * 0.7) *((100vw - 320px )/1920));
+	line-height: 18px;
+	color: #AFB6B3;
+}
+.trackTools{
+	min-width: 10%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.toolTime{
+	font-style: normal;
+	font-weight: 400;
+	font-size: 15.2603px;
+	display: flex;
+	align-items: center;
+	color: #E4E7E6;
+}
+.settingBlock{
+	height: 100%;
+}
+.toolSetting{
+	display: flex;
+	align-items: center;
+}
+.IconLIke{
+	position: absolute;
+}
+@media (max-width:1450px) {
+	.IconLIke{
+		display: none;
+	}
+}

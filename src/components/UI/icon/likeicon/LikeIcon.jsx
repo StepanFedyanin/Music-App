@@ -12,15 +12,13 @@ function LikeIcon(props) {
 		setChoeseLike(false)
 	}
 	return (
-		<div>
-			<div className="">
-				{
-					choeseLike ?
-						<img onClick={ChoiseNoLike} src={IconLike} alt="" />
-						:
-						<img onClick={ChoiseLike} src={NoIconLike} alt="" />
-				}
-			</div>
+		<div className="">
+			{
+				choeseLike ?
+					<img onClick={ChoiseNoLike} src={IconLike} alt="" />
+					:
+					<img onClick={ChoiseLike} src={NoIconLike} alt="" />
+			}
 		</div>
 	)
 }

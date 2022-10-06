@@ -2,3 +2,35 @@
 	display: flex;
 	background-color: #121212;
 }
+.homeAdaptive{
+	display: flex;
+	justify-content: flex-end;
+}
+@media (max-width:980px) {
+	.homeAdaptive{
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+}
+@media (max-width:768px) {
+	.homeContent{
+		display: flex;
+		flex-direction: column;
+	}
+	.homeAdaptive{
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		max-width: 100%;
+		margin: 100px 0 0 0;
+	}
+}
+@media (max-width:540px) {
+	.homeContent{
+		flex-direction: column-reverse;
+	}
+	.homeAdaptive{
+		margin: 15px 0 0 0;
+	}
+}

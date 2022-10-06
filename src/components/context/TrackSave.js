@@ -7,6 +7,7 @@ const TrackInfo = createContext({
 	"trackName": "",
 	"trackLink": "",
 	"trackExecutor": "",
-	"ChouseTrack": []
+	"ChouseTrack": [],
+	"idChouseTrack": ""
 })
 export default TrackInfo

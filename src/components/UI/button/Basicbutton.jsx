@@ -3,7 +3,7 @@ import cls from './basicbutton.module.css'
 
 function basicbutton({ children }) {
 	return (
-		<div>
+		<div className={cls.basicbuttonBox}>
 			<button className={cls.basicbutton}>
 				{children}
 			</button>

@@ -3,13 +3,16 @@ import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import '../src/style/resetStyles.css'
 import AppRouter from "./components/utils/AppRouter";
 import TrackInfo from './components/context/TrackSave'
+import LoginApp from "./pages/LoginApp";
 function App() {
 	const [trackPlay, setTrackPlay] = useState({
 		"trackCover": "",
 		"trackName": "",
 		"trackLink": "",
 		"trackExecutor": "",
-		"ChouseTrack": []
+		"ChouseTrack": [{ albomList: [] }],
+		'trackСategory': "",
+		"idChouseTrack": ""
 	})
 	return (
 		<div className="App">

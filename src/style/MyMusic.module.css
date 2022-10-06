@@ -4,6 +4,7 @@
 	background-color: #121212;
 }
 .Content{
-	width: 100%;
-	margin: 10px 100px;
+	display: flex;
+	height: 100%;
+	justify-content: flex-end;
 }

@@ -1,14 +1,16 @@
 import React from 'react'
 import { Link, BrowserRouter, Routes, Route } from 'react-router-dom'
-import Login from '../components/UI/input/Login'
+import Login from '../components/UI/input/Login/Login'
 import cls from '../style/LoginApp.module.css'
 import Basicbutton from '../components/UI/button/Basicbutton'
-import Password from '../components/UI/input/Password'
+import Password from '../components/UI/input/Password/Password'
 import homePage from './HomePage'
 function LoginApp() {
 	return (
 		<div>
 			<div className={cls.loginApp}>
+				<div className="">
+				</div>
 				<div className={cls.loginModal}>
 					<div className={cls.loginContent}>
 						<div className="registration">

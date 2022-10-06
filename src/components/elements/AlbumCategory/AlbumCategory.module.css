@@ -1,0 +1,92 @@
+.albomCategory{
+	position: relative;
+	height: max-content;
+}
+
+.albomContent{
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+	position: absolute;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 19px 28px 28px 28px;
+}
+.albomTools{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+.albomLisen{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.albomChoice{
+	display: flex;
+	align-items: center;
+}
+@media (max-width:980px) {
+	.albomTools{
+		display: flex;
+		flex-direction: column-reverse;
+	}
+	.albomNavList{
+		display: flex;
+		justify-content: space-evenly;
+	}
+	.albomLisen{
+		flex-direction: row;
+	}
+	.albomNav{
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -18px;
+		width: 100%;
+		/* border: 1px solid red; */
+		background:  #000000 ;
+
+		border-bottom-left-radius:20px;
+		border-bottom-right-radius:20px;
+	}
+}
+.albomFavorites{
+	margin-right: 20px;
+}
+.albomNavItem{
+	padding: 3px 0;
+}
+.albomNavEl{
+	font-weight: 400;
+	font-size: 11.4452px;
+	line-height: 14px;
+	color: #AFB6B3;
+	font-size: calc(9px + (2 + 2 * 0.7) *((100vw - 320px )/1920))}
+.albomExecutor{
+	color: #FAFAFA;
+	font-style: normal;
+	font-weight: 300;
+	font-size: calc(18px + (4 + 4 * 0.7) *((100vw - 320px )/1920))
+}
+.albomTitle{
+	color: #FAFAFA;
+	font-size: calc(23px + (15 + 15 * 0.7) *((100vw - 320px )/1920));
+	font-weight: 700;
+	font-style: normal;
+}
+@media (max-width:540px) {
+	.albomContent{
+		padding: 7px;
+	}
+	.albomNavItem{
+		padding: 0;
+		line-height: 1.15;
+	}
+}
+
+
