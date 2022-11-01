@@ -1,24 +1,24 @@
 import React from 'react'
-import cls from './TracksList.module.css'
+import cls from './TracksList.module.scss'
 import TracItem from '../TracItem/TracItem'
 
-function TracksList({ trackList, trackСategory, trackListName, ...props }) {
+function TracksList({ trackList, TitleList }) {
 	return (
-		<div>
+		<div className={cls.TrackList}>
 			<div className={cls.TitleListBlock}>
-				<p className={cls.TitleList}>{props.TitleList}</p>
+				<p className={cls.TitleList}>{TitleList}</p>
 			</div>
 			<div className="">
 				{
-					trackList.map((item, index) =>
+					trackList.songs.map((item, index) =>
 						< TracItem
-							key={"item.trackName" + item.trackName}
-							number={index + 1} trackCover={item.trackCover}
-							trackName={item.trackName}
-							trackExecutor={item.trackExecutor}
-							tracklink={item.trackLink}
-							trackСategory={trackСategory}
-							trackListName={trackListName}
+							key={item.id}
+							id_song={item.id}
+							trackList={trackList.songs}
+							number={index + 1}
+							trackCover={trackList.thumbnail || item.thumbnail}
+							trackName={item.name}
+							trackDuration={item.duration}
 						/>
 					)
 				}

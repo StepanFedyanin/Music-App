@@ -1,20 +1,18 @@
 import React from 'react'
-import { useState } from 'react';
 import reapitBtnIcon from '../../resources/reapitTreackItem.svg';
 import reapitBtnIconWork from '../../resources/reapitTreackItemWork.svg';
 
-function RepeatTrack() {
-	const [changeView, setChangeView] = useState(false)
+function RepeatTrack({ loopTrack, seLoopTrack }) {
 	const changeTrue = () => {
-		setChangeView(true);
+		seLoopTrack(true);
 	}
 	const changeFalse = () => {
-		setChangeView(false);
+		seLoopTrack(false);
 	}
 	return (
 		<div>
 			{
-				changeView ?
+				loopTrack ?
 					<div onClick={changeFalse} className="">
 						<img src={reapitBtnIconWork} alt="" />
 					</div>

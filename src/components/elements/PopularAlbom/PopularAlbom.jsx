@@ -1,7 +1,6 @@
 import React from 'react'
-import cls from './PopularAlbum.module.css';
+import cls from './PopularAlbum.module.scss';
 import { useNavigate } from 'react-router-dom'
-import TracItem from '../TracItem/TracItem';
 function PopularAlbom(props) {
 	const router = useNavigate();
 	return (

@@ -1,7 +1,6 @@
 import React from 'react'
-import cls from './RightContent.module.css'
+import cls from './RightContent.module.scss'
 import MusicCategory from '../MusicCategory/MusicCategory'
-import TopTrackList from '../../../API/TopTracks.js'
 import TracksList from '../TracksList/TracksList'
 function RightContent() {
 	return (
@@ -13,7 +12,7 @@ function RightContent() {
 					</div>
 					<div className="">
 						{
-							<TracksList trackList={TopTrackList} trackСategory="TopTrackList" />
+							// <TracksList trackList={TopTrackList} trackСategory="TopTrackList" />
 						}
 					</div>
 				</div>

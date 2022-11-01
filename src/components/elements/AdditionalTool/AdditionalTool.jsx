@@ -1,5 +1,5 @@
 import React from 'react'
-import cls from './AdditionalTool.module.css'
+import cls from './AdditionalTool.module.scss'
 function AdditionalTool({ BooleanShow }) {
 	const style = [cls.Tools];
 	if (BooleanShow) {

@@ -1,15 +1,14 @@
 import React, { useState } from 'react'
 import AlbomItem from '../AlbomItem/AlbomItem'
-import cls from './AlbomList.module.css'
-function NewAlbom(props) {
+import cls from './AlbomList.module.scss'
+function AlbomLIst({ albomListName, setAlbomListName, ...props }) {
 	const [albomLIst, setAlbomList] = useState(props.Albomlist)
 	const [showAlbomList, setShowAlbomList] = useState(true)
 	const [transformAlbomList, setTransformAlbomList] = useState([cls.albomList])
-
 	const seeMoreAlboms = () => {
-		setAlbomList([...albomLIst, albomLIst].flat())
+		setAlbomListName(prev => [...prev, 'MPREb_LpzvzvD6dn0', 'MPREb_zioMNYHmNn9', 'MPREb_qX0GBqUTGKc', 'MPREb_CEZw6Rwz6En'])
 		setShowAlbomList(false);
-		setTransformAlbomList(transformAlbomList.join(' ').toString());
+		// setTransformAlbomList(transformAlbomList.join(' ').toString());
 	}
 	const hideMoreAlboms = () => {
 		setAlbomList(albomLIst.splice(4, 7))
@@ -41,7 +40,14 @@ function NewAlbom(props) {
 			<div className={transformAlbomList}>
 				{
 					albomLIst.map((el, index) =>
-						<AlbomItem key={el.nameAlbom + index} albomСover={el.albomСover} nameAlbome={el.nameAlbom} executor={el.executor} musiclist={el.musiclist} />
+						<AlbomItem
+							key={el.title + index}
+							album_id={el.album_id}
+							albomСover={el.thumbnail}
+							nameAlbome={el.title}
+							// executor={el.artists}
+							musiclist={el.songs}
+						/>
 					)
 				}
 			</div>
@@ -49,4 +55,4 @@ function NewAlbom(props) {
 	)
 }
 
-export default NewAlbom
+export default AlbomLIst

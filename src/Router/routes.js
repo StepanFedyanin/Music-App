@@ -1,18 +1,16 @@
 import React from "react";
-import LoginApp from "../pages/LoginApp";
-import HomePage from "../pages/HomePage";
-import MyMusic from '../pages/MyMusic';
-import NewMusicPage from '../pages/NewMusicPage';
-import Recommendation from '../pages/Recommendation.jsx'
-import AlbomPage from "../pages/AlbomPage";
-import ArtistPage from "../pages/ArtistPage";
+import LoginApp from "../pages/LoginApp/LoginApp";
+import HomePage from "../pages/HomePage/HomePage";
+import MyMusic from "../pages/MyMusic/MyMusic";
+import NewMusicPage from "../pages/NewMusicPage/NewMusicPage";
+import AlbomPage from "../pages/AlbomPage/AlbomPage";
+import ArtistPage from "../pages/ArtistPage/ArtistPage";
 export const privateRoutes = [
 	{ path: '/homePage', element: <HomePage /> },
 	{ path: '/MyMusic', element: <MyMusic /> },
 	{ path: '/newMusic', element: <NewMusicPage /> },
-	{ path: '/Recommendation', element: <Recommendation /> },
-	{ path: '/albom/:executor/:nameAlbome', element: <AlbomPage /> },
-	{ path: '/executor/:nameExecutor', element: <ArtistPage /> },
+	{ path: '/albom/:album_id', element: <AlbomPage /> },
+	{ path: '/executor/:id_executor', element: <ArtistPage /> },
 ]
 
 export const publicRoutes = [

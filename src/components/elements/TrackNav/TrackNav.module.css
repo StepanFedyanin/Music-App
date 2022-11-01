@@ -9,6 +9,7 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 8px 40px;
+	box-shadow: 0px -1px black;
 }
 @media (max-width:540px) {
 	.TrackNav{
@@ -34,6 +35,7 @@
 .trackContent{
 	display: flex;
 	align-items: center;
+	flex-direction: column;
 }
 .trackInfoShow{
 	display: flex;
@@ -46,6 +48,16 @@
 .TrackInfo{
 	display: flex;
 	align-items: center;
+}
+.trackContentInfo{
+	display: flex;
+	align-items: center;
+}
+.trackTimeStyle{
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+	color: #AFB6B3;
 }
 .trackShow{
 	display: flex;
@@ -72,6 +84,25 @@
 	box-shadow: 0px 0px 9.97856px rgba(255, 55, 64, 0.3);
 	cursor: pointer;
 }
+.trackTimeAwait{
+	margin: 0 15px;
+	width: 36vw;
+	height: 4px;
+	background: #1F3452;
+	cursor: pointer;
+	animation: flashing 3s infinite linear;
+}
+@keyframes flashing {
+	0%{
+		background: #1F3452;
+	}
+	50%{
+		background-color: #0167FF;
+	}
+	100%{
+		background: #1F3452;
+	}
+}
 .trackTitle{
 	margin: 0 37px 0 0;
 }
@@ -90,12 +121,21 @@
 .audioHide{
 	display: none;
 }
+@media (max-width:1000px) {
+	.trackSetting{
+		display: none;
+	}
+	.toolsIcon{
+		display: none;
+	}
+}
 @media (max-width:540px) {
 	.TrackNav{
 		bottom: 64px;
 		padding: 8px 5px;
 		flex-direction: row-reverse;
 		}
+
 	/* .trackContent{
 		flex-direction: column;
 		width: 100%;

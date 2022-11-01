@@ -1,6 +1,6 @@
 import React from 'react'
 import { Navigate, Route, Router, Routes } from "react-router-dom";
-import HomePage from '../../pages/HomePage';
+import HomePage from '../../pages/HomePage/HomePage';
 import { privateRoutes } from '../../Router/routes';
 const AppRouter = () => {
 	return (

@@ -3,10 +3,11 @@ import { useState } from 'react'
 import IconLike from '../../../resources/likeTrack.svg'
 import NoIconLike from '../../../resources/nolikeicon.png'
 
-function LikeIcon(props) {
+function LikeIcon({ addMyMusicSong, ...props }) {
 	const [choeseLike, setChoeseLike] = useState(false || props.likeIcon);
 	const ChoiseLike = () => {
 		setChoeseLike(true)
+		addMyMusicSong();
 	}
 	const ChoiseNoLike = () => {
 		setChoeseLike(false)

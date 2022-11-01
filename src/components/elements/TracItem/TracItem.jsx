@@ -1,56 +1,47 @@
 import React, { useContext } from 'react'
-import cls from './TrackItem.module.css'
+import cls from './TrackItem.module.scss'
 import settingIcon from '../../resources/coolicon.svg'
 import { useState } from 'react'
 import LikeIcon from '../../UI/icon/likeicon/LikeIcon'
 import TrackInfo from '../../context/TrackSave'
-import AlbomsListTrack from '../../../API/AlbomListItem'
-import TopTrackList from '../../../API/TopTracks'
 import AdditionalTool from '../AdditionalTool/AdditionalTool'
+import { useNavigate } from 'react-router-dom'
+import MyTrackAndAlbum from '../../context/MyTrackAndAlbum'
+import addMyMusic from '../../utils/AddMyMusic'
 function TracItem(props) {
+	const router = useNavigate()
 	const { trackPlay, setTrackPlay } = useContext(TrackInfo);
-	const [stopTrack, setStopTrack] = useState(true);
-	const [booleanShow, setBooleanShow] = useState(false)
+	const { myMusic, setMyMusic } = useContext(MyTrackAndAlbum);
+	const [booleanShow, setBooleanShow] = useState(false);
+	const styleText = [cls.trackTitle];
+	// const styleItem = [cls.trackItem]
+	const [styleItem, setStyleItem] = useState([cls.trackItem])
+
 	const OpenTrack = () => {
-		if (stopTrack) {
-			setTrackPlay({
-				"trackTimeNow": trackPlay.trackTimeNow,
-				"work": true,
-				"ChouseTrack": TrackListItems(),
-				"trackCover": props.trackCover,
-				"trackExecutor": props.trackExecutor,
-				"trackLink": props.tracklink,
-				"trackName": props.trackName,
-				"idChouseTrack": (Number(props.number) - 1)
-			})
-			setStopTrack(false)
-		}
-		else {
-			setTrackPlay({
-				"trackTimeNow": trackPlay.trackTimeNow,
-				"work": false,
-				"ChouseTrack": TrackListItems(),
-				"trackCover": props.trackCover,
-				"trackExecutor": props.trackExecutor,
-				"trackLink": props.tracklink,
-				"trackName": props.trackName,
-				"idChouseTrack": (Number(props.number) - 1)
-			})
-			setStopTrack(true)
-		}
-		setBooleanShow(false)
+		setTrackPlay({
+			"work": true,
+			"id_song": props.id_song,
+			"trackCover": props.trackCover,
+			"trackName": props.trackName,
+			"trackList": props.trackList,
+			"duration": props.trackDuration
+		})
+		setStyleItem(pref => [pref, cls.trackActive])
 	}
-	const TrackListItems = () => {
-		if (props.trackСategory == 'AlbomsListTrack') {
-			let returnAlbomList = AlbomsListTrack.filter(el => el.albomTitle == props.trackListName.split(' ').join(''))
-			return returnAlbomList;
+	const addMyMusicSong = () => {
+		const songChar = Array.isArray(myMusic.songs) ? myMusic.songs : [];
+		songChar.unshift(
+			addMyMusic.addSong(props.id_song, props.trackList, props.trackCover, props.trackName, props.trackDuration)
+		)
+		setMyMusic({
+			"albums": myMusic.albums,
+			"songs": songChar,
+			"trackList": myMusic.trackList
 		}
-		if (props.trackСategory == 'TopTrackList') {
-			return TopTrackList;
-		}
+		)
 	}
 	return (
-		<div onClick={OpenTrack} className={cls.trackItem} data-tracklink={props.trackLink}>
+		<div onClick={OpenTrack} className={styleItem.join(' ')} data-tracklink={props.id_song}>
 			<div className={cls.trackInfo}>
 				<div className="">
 					<p className={cls.trackIndex}>{props.number}</p>
@@ -59,20 +50,31 @@ function TracItem(props) {
 					<img src={props.trackCover} alt="" />
 				</div>
 				<div className="">
-					<div>
-						<p className={cls.trackTitle}>{props.trackName}</p>
+					<div className={cls.trackTitleBlock}>
+						<p className={styleText.join(' ')}>{props.trackName
+							.split('-')[1]
+						}</p>
 					</div>
-					<div >
-						<p className={cls.trackExecutor}>{props.trackExecutor}</p>
+					<div onClick={(e) => e.stopPropagation()} className={cls.trackExecutorBlock}>
+						<p
+							onClick={() => router('/executor/' + (props.trackExecutor))}
+							className={cls.trackExecutor}>
+							{props.trackName
+								.split('-')[0]
+							}
+						</p>
 					</div>
 				</div>
 			</div>
 			<div className={cls.trackTools} onClick={(e) => e.stopPropagation()}>
-				<div className="">
-					{/* <p className={cls.toolTime}>{Math.floor(props.trackLink.duration / 60) + ':' + Math.round(props.trackLink.duration % 60)}</p> */}
+				<div className={cls.toolTime}>
+					<p className={cls.toolTimeDuration}>{
+						props.trackDuration ?
+							(Math.floor(props.trackDuration / 60) + ':' + Math.floor(props.trackDuration % 60)) : "данных нет"
+					}</p>
 				</div>
 				<div className={cls.IconLIke}>
-					<LikeIcon likeIcon={props.likeIcon} />
+					<LikeIcon addMyMusicSong={addMyMusicSong} likeIcon={props.likeIcon} />
 				</div>
 				<div className={cls.settingBlock}>
 					<button className={cls.toolSetting} onClick={() => booleanShow ? setBooleanShow(false) : setBooleanShow(true)}>

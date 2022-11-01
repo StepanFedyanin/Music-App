@@ -5,12 +5,12 @@ import home from '../../resources/homeIcon.svg'
 import albums from '../../resources/ilbomicon.svg'
 import mymusicicon from '../../resources/mymusicicon.svg'
 import recicon from '../../resources/recicon.svg'
-import cls from './NavBar.module.css'
+import cls from './NavBar.module.scss'
 import { useState } from 'react'
 function NavBarLeft() {
 	const [navBarOpen, setNavBarOpen] = useState(false);
 	const navList = [cls.navList]
-	const [navListChange, setNavListChange] = useState(navList)
+	const [navListChange, setNavListChange] = useState(cls.navList)
 	const ModalNavBar = () => {
 		if (navBarOpen) {
 			setNavListChange(navListChange.split(' ')[0])

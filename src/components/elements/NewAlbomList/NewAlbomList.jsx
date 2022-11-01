@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import cls from './NewAlbomList.module.css'
+import cls from './NewAlbomList.module.scss'
 import PopularAlbom from '../PopularAlbom/PopularAlbom'
 function NewAlbomList({ NewAlbomList }) {
 	const [showAlbomList, setShowAlbomList] = useState(true)
