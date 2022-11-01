@@ -1,0 +1,56 @@
+@use "../../../style//importStyles.scss" as mixin;
+
+.albom {
+	width: 25%;
+	min-width: 200px;
+	margin: 10px 0;
+	transition: 0.7s;
+	position: relative;
+	&:hover {
+		filter: brightness(0.3);
+		.albomContentHover {
+			transform: scale(1);
+		}
+	}
+	.albomContentHover {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		z-index: 2;
+		transform: scale(0);
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		transition: 0.3s;
+		.albomContentHover_item {
+			cursor: pointer;
+		}
+	}
+	.albomContent {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		margin: 0 12px;
+		.albomCover {
+			position: relative;
+			border-radius: 20px;
+			overflow: hidden;
+		}
+	}
+}
+
+.albomTitle {
+	@include mixin.STAlbomTitle;
+}
+.albomName {
+	@include mixin.STAlbomName;
+}
+
+// @media (max-width: 540px) {
+// 	.albom {
+// 		min-width: 110px;
+// 	}
+// }

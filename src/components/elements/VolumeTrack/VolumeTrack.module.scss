@@ -1,0 +1,44 @@
+.VoiceTools {
+	position: relative;
+	width: fit-content;
+	.VoiceToolsIcon {
+		cursor: pointer;
+	}
+	.VoiceBlockRange {
+		display: none;
+		width: fit-content;
+		position: absolute;
+		top: -30px;
+		right: auto;
+		left: auto;
+		height: min-content;
+		&.active {
+			display: block;
+		}
+		.VoiceinputRange {
+			-webkit-appearance: none;
+			margin: 5px 7px;
+			height: 5px;
+			border-radius: 20px;
+			background-color: #1f3452;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			&::-webkit-slider-thumb {
+				-webkit-appearance: none;
+				height: 15px;
+				width: 15px;
+				border-radius: 50%;
+				background: #0167ff;
+				cursor: ew-resize;
+			}
+			&::-moz-range-thumb {
+				-webkit-appearance: none;
+				height: 15px;
+				width: 15px;
+				border-radius: 50%;
+				background: #0167ff;
+				cursor: ew-resize;
+			}
+		}
+	}
+}

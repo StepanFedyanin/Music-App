@@ -1,0 +1,30 @@
+@use "../../../style/importStyles.scss" as mixin;
+.AristRelatedItem {
+	max-width: 250px;
+	min-width: 25%;
+	border-radius: 20px;
+	overflow: hidden;
+	position: relative;
+	margin: 10px 20px;
+	&:hover {
+		filter: brightness(0.3);
+	}
+	.AristRelatedPhotoBlock {
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+		width: 100%;
+		.AristRelatedPhotoThumbnail {
+			opacity: 0.6;
+		}
+	}
+	.AristRelatedItemTitle {
+		position: absolute;
+		bottom: 0;
+		display: flex;
+		width: 100%;
+		height: fit-content;
+		justify-content: center;
+		.AristRelatedItemText {
+			@include mixin.STAlbomTitle;
+		}
+	}
+}

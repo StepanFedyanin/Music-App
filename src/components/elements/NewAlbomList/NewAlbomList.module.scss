@@ -1,0 +1,25 @@
+@use "../../../style/importStyles.scss" as mixin;
+.NewMusicAlbum {
+	.AlbomHeader {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		margin-bottom: 20px;
+	}
+	.NewMusicAlbumList {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+}
+
+.albomTitleStyle {
+	@include mixin.STAlbomName;
+}
+.buttonStyle {
+	@include mixin.STTrackTitle;
+	cursor: pointer;
+	&:hover {
+		color: #1f3452;
+	}
+}

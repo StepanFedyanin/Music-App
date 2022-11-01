@@ -1,0 +1,9 @@
+.TitleListBlock {
+	margin-bottom: 25px;
+	.TitleList {
+		font-size: calc(16px + (4 + 4 * 0.7) * ((100vw - 320px) / 1920));
+		color: #ffffff;
+		opacity: 0.72;
+		color: #fafafa;
+	}
+}

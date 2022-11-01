@@ -1,0 +1,45 @@
+@use "../../../style/importStyles.scss" as mixin;
+
+.Loading {
+	width: 100vw;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9;
+	.LoadingContent {
+		margin: 0;
+		position: absolute;
+		/* background-color: #12121233; */
+		top: 50%;
+		left: 50%;
+		margin-right: -50%;
+		transform: translate(-50%, -50%);
+		z-index: 10;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.LoadingAnimationImg {
+			animation: rotate 10s infinite linear;
+		}
+		.LoadingAnimationBlock {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+.LoadingAnimationBlock {
+	margin-bottom: 30px;
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+.LoadingText {
+	@include mixin.STtOpacity;
+}

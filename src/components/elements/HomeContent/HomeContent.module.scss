@@ -1,0 +1,17 @@
+.homeContent {
+	position: relative;
+	padding: 46px 28px;
+	max-width: 50%;
+}
+@media (max-width: 980px) {
+	.homeContent {
+		padding: 0px 28px;
+		max-width: 70%;
+	}
+}
+@media (max-width: 768px) {
+	.homeContent {
+		max-width: 100%;
+		padding: 0px 10px;
+	}
+}

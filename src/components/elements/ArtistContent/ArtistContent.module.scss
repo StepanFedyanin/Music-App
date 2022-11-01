@@ -1,0 +1,38 @@
+@use "../../../style/importStyles.scss" as mixin;
+.ArtistConteiner {
+	display: flex;
+	width: 100%;
+	justify-content: flex-end;
+	background-color: #272727;
+	height: 100%;
+	.ArtistContent {
+		width: 77%;
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		.artistInfo {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-bottom: 30px;
+		}
+		.ArtistsWork {
+			width: 70%;
+		}
+	}
+}
+
+.Artistrelated {
+	width: 100%;
+}
+
+.preview {
+	margin-top: 10px;
+	max-width: 500px;
+	border-radius: 20px;
+	overflow: hidden;
+}
+.artistName {
+	@include mixin.STtOpacity;
+}

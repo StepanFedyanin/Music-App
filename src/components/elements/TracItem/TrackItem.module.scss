@@ -1,0 +1,83 @@
+@use "../../../style/importStyles.scss" as mixin;
+
+.trackItem {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #313533;
+	padding: 5px 7px;
+	margin: 7px 0;
+	&:hover {
+		background-color: rgba(1, 103, 255, 0.1);
+	}
+	.trackInfo {
+		display: flex;
+		align-items: center;
+	}
+}
+.trackActive {
+	background-color: rgba(1, 103, 255);
+}
+
+.trackImg {
+	max-width: 60px;
+	width: calc((100vh / 100) * 10);
+	min-width: 30px;
+	margin: 0 15px 0 10px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+.trackIndex {
+	color: #afb6b2;
+}
+.trackTitleBlock {
+	width: 200px;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	.trackTitle {
+		width: fit-content;
+		font-style: normal;
+		@include mixin.STTrackTitle;
+		white-space: nowrap;
+	}
+}
+.trackExecutorBlock {
+	.trackExecutor {
+		@include mixin.STTrackEx;
+		width: fit-content;
+		cursor: pointer;
+		&:hover {
+			filter: brightness(0.3);
+		}
+	}
+}
+
+.trackTools {
+	min-width: 10%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	.toolTime {
+		display: flex;
+		align-items: center;
+		color: #e4e7e6;
+		.toolTimeDuration {
+			@include mixin.STTrackEx;
+		}
+	}
+	.settingBlock {
+		height: 100%;
+		.toolSetting {
+			display: flex;
+			align-items: center;
+		}
+	}
+}
+
+@media (max-width: 1450px) {
+	.IconLIke {
+		display: none;
+	}
+}

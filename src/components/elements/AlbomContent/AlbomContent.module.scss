@@ -1,0 +1,42 @@
+// @import url(../../../style//importStyles.scss);
+@use "../../../style//importStyles.scss" as mixin;
+.containerContent {
+	display: flex;
+	width: 100%;
+	justify-content: flex-end;
+	background-color: #272727;
+	.content {
+		width: 77%;
+		padding: 50px 75px;
+	}
+}
+
+.AlbomInfo {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	margin-bottom: 30px;
+	.AlbomCover {
+		max-width: 300px;
+		width: max-content;
+		border-radius: 20px;
+		overflow: hidden;
+		&:hover {
+			filter: brightness(0.3);
+		}
+	}
+}
+
+.AlbomName {
+	@include mixin.STtOpacity;
+}
+@media (max-width: 980px) {
+	.content {
+		width: 70%;
+	}
+}
+@media (max-width: 768px) {
+	.content {
+		width: 100%;
+	}
+}
