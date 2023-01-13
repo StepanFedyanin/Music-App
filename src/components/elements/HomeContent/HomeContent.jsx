@@ -20,17 +20,17 @@ function HomeContent() {
 	async function getAlbomList(AlbomArray) {
 		console.log(AlbomArray);
 		for (const item of AlbomArray) {
-			setTimeout(async () => {
+				setTimeout(async () => {
 				const responce = await (GetYouTubeAPI.getAlbom(item))
 				responce.result.album_id = item;
 				setAlbomList(prev => [...prev, responce.result])
-				setLoadingContent(true);
 				if (AlbomArray.indexOf(item) == AlbomArray.length - 1) {
 					setLoadingContent(true);
 				}
-			}, AlbomArray.indexOf(item) * 1500)
+			}, (AlbomArray.indexOf(item) + 1) * 1500)
 		}
 	}
+	console.log(albomList);
 	return (
 		<div className={cls.homeContent}>
 			{

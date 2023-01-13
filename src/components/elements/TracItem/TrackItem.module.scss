@@ -41,6 +41,18 @@
 		font-style: normal;
 		@include mixin.STTrackTitle;
 		white-space: nowrap;
+		&.trackTitleScroll {
+			white-space: nowrap;
+			animation: scroll 6s infinite linear;
+		}
+	}
+}
+@keyframes scroll {
+	0% {
+		transform: translate(20px, 0);
+	}
+	100% {
+		transform: translate(-100%, 0);
 	}
 }
 .trackExecutorBlock {
@@ -79,5 +91,31 @@
 @media (max-width: 1450px) {
 	.IconLIke {
 		display: none;
+	}
+}
+@media (max-width: 768px) {
+	.trackTitleBlock {
+		width: 150px;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+	}
+	.trackImg {
+		max-width: 60px;
+		width: calc((100vw / 100) * 10);
+		min-width: 30px;
+		margin: 0 15px 0 10px;
+		border-radius: 10px;
+		overflow: hidden;
+	}
+}
+@media (max-width: 576px) {
+	.trackTools {
+		.toolTime {
+			margin: 0 15px;
+			display: flex;
+			align-items: center;
+			color: #e4e7e6;
+		}
 	}
 }

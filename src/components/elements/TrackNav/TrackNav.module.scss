@@ -1,0 +1,353 @@
+.TrackNavContainer {
+	position: fixed;
+	z-index: 8;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: #272727;
+	// padding: 8px 40px;
+	box-shadow: 0px -1px black;
+	.trackNavHide {
+		display: none;
+	}
+	.TrackNav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		.trackTools {
+			display: flex;
+			align-items: center;
+			width: 20%;
+			justify-content: flex-start;
+			.toolsIcon {
+				margin: 0 10px;
+			}
+		}
+
+		.trackSetting {
+			display: flex;
+			align-items: center;
+			width: 20%;
+			justify-content: center;
+			.toolsIcon {
+				margin: 0 10px;
+				&.toolsIconMoInfo {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 540px) {
+	.TrackNavContainer {
+		.TrackNav {
+			bottom: 64px;
+		}
+	}
+}
+.trackContent {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	.trackContentInfo {
+		display: flex;
+		align-items: center;
+		.trackCover {
+			width: 60px;
+			margin: 0 90px 0 0;
+			border-radius: 20px;
+			overflow: hidden;
+		}
+		.trackShow {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			.trackName {
+				display: flex;
+				align-items: center;
+				.trackTitle {
+					margin: 0 37px 0 0;
+					.trackTitleStyle {
+						font-size: 17px;
+						display: flex;
+						align-items: center;
+						color: #ffffff;
+					}
+				}
+				.trackExecutor {
+					.trackExecutorStyle {
+						font-size: 15px;
+						display: flex;
+						align-items: center;
+						color: #afb6b3;
+					}
+				}
+			}
+		}
+	}
+}
+
+.TrackInfo {
+	display: flex;
+	align-items: center;
+}
+
+.trackTimeStyle {
+	font-size: 15px;
+	display: flex;
+	align-items: center;
+	color: #afb6b3;
+}
+.trackTimeAwait {
+	margin: 0 15px;
+	width: 36vw;
+	height: 4px;
+	background: #1f3452;
+	cursor: pointer;
+	animation: flashing 3s infinite linear;
+	.trackTimeBarBefore {
+		width: 0%;
+		height: 100%;
+		background: #0167ff;
+		box-shadow: 0px 0px 9.97856px rgba(255, 55, 64, 0.3);
+		cursor: pointer;
+	}
+}
+.trackTimeBarAfter {
+	margin: 0 15px;
+	width: 36vw;
+	height: 4px;
+	background: #1f3452;
+	cursor: pointer;
+	.trackTimeBarBefore {
+		width: 0%;
+		height: 100%;
+		background: #0167ff;
+		box-shadow: 0px 0px 9.97856px rgba(255, 55, 64, 0.3);
+		cursor: pointer;
+	}
+}
+@keyframes flashing {
+	0% {
+		background: #1f3452;
+	}
+	50% {
+		background-color: #0167ff;
+	}
+	100% {
+		background: #1f3452;
+	}
+}
+
+.audioHide {
+	display: none;
+}
+@media (max-width: 1000px) {
+	.trackSetting {
+		display: none;
+	}
+	.toolsIcon {
+		display: none;
+		&.toolsIconChange {
+			display: block;
+		}
+	}
+	.toolsIconPlay {
+		display: block;
+	}
+	.TrackNavContainer {
+		.TrackNav {
+			padding: 8px 20px;
+			.trackTools {
+				display: flex;
+				align-items: center;
+				&.trackToolsAdaptive {
+					width: 200px;
+				}
+			}
+			.trackSetting {
+				width: fit-content;
+				min-width: 30px;
+				.toolsIcon {
+					display: none;
+					&.toolsIconMoInfo {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+	.TrackInfoAdaptive {
+		// width: 100%;
+		// height: 70vh;
+		// z-index: 10;
+	}
+	.trackContent {
+		width: 100%;
+		flex-direction: row;
+		justify-content: space-between;
+		.trackContentInfo {
+			// display: flex;
+			// flex-direction: column;
+			// align-items: center;
+			.trackCover {
+				width: 60px;
+				margin: 0 20px 0 0;
+				border-radius: 20px;
+				overflow: hidden;
+			}
+			.trackShow {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				.trackName {
+					flex-direction: column;
+					max-width: 150px;
+					overflow-x: hidden;
+					.trackTitle {
+						// max-width: 100px;
+						width: 100%;
+						overflow-x: hidden;
+						margin: 0;
+						.trackTitleStyle {
+							&.trackTitleStyleLaik {
+								white-space: nowrap;
+								animation: scroll 5s infinite linear;
+							}
+						}
+					}
+					@keyframes scroll {
+						0% {
+							transform: translate(0, 0);
+						}
+						100% {
+							transform: translate(-100%, 0);
+						}
+					}
+					.trackExecutor {
+						.trackExecutorStyle {
+							font-size: 15px;
+							display: flex;
+							align-items: center;
+							color: #afb6b3;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width: 880px) {
+	.TrackNavContainer {
+		.TrackNav {
+			padding: 8px 20px;
+			.trackTools {
+				display: flex;
+				align-items: center;
+				width: 20%;
+				justify-content: flex-start;
+				&.trackToolsAdaptive {
+					width: inherit;
+				}
+				.toolsIcon {
+					margin: 0 10px;
+					display: none;
+					&.toolsIconPlay {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+	.trackContent {
+		justify-content: space-around;
+	}
+}
+
+@media (max-width: 768px) {
+	.TrackNavContainer {
+		.TrackNav {
+			flex-direction: row-reverse;
+			.trackSetting {
+				display: none;
+			}
+			.trackTools {
+				align-items: center;
+				&.trackToolsAdaptive {
+					width: 40%;
+					min-width: 100px;
+				}
+				.toolsIcon {
+					margin: 0 10px;
+					display: none;
+					&.toolsIconChange {
+						display: block;
+					}
+				}
+			}
+		}
+	}
+	.TrackInfo {
+		position: absolute;
+		width: 100%;
+		justify-content: space-between;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 0 22px 0 10px;
+		.trackTimeBarAfter {
+			width: 100%;
+			margin: 0 20px;
+		}
+		.trackTimeAwait {
+			margin: 0 15px;
+			width: 100%;
+		}
+	}
+	// .trackTimeAwait {
+	// 	margin: 0 15px;
+	// 	width: 36vw;
+	// }
+	// .trackTimeBarAfter {
+	// 	margin: 0 15px;
+	// 	width: 36vw;
+	// 	height: 4px;
+	// 	background: #1f3452;
+	// 	cursor: pointer;
+	// }
+	/* .trackContent{
+		flex-direction: column;
+		width: 100%;
+	}
+	.trackContentInfo{
+		display: flex;
+		align-items: center; 
+	}
+	.trackCover{
+		margin: 0;
+	}
+
+	.trackTools{
+		width: 40%;
+	}
+	.trackSetting{
+		display: none;
+	}
+	.trackName{
+		margin-left: 20px;
+		flex-direction: column;
+		align-items: normal;
+	}
+	.trackTitle{
+		margin: 0;
+	}
+	.TrackInfo{
+		width: 100%;
+		justify-content: space-around;
+	}
+	.trackContentInfo{
+
+	} */
+}

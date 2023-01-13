@@ -1,0 +1,43 @@
+.TrackNavAdaptiveTarget {
+	height: 100vh;
+	position: fixed;
+	right: 0;
+	left: 0;
+	top: 0;
+	left: 0;
+	display: none;
+	&.TrackNavAdaptiveNone {
+		display: block;
+	}
+	.TrackNavAdaptive {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 35vh;
+		position: absolute;
+		bottom: 0;
+		background-color: #272727;
+		box-shadow: 0px -1px black;
+		z-index: 12;
+		.TrackNavAdaptiveinfo {
+			display: flex;
+			align-items: center;
+			.TrackNavAdaptivePhoto {
+				width: 200px;
+				border-radius: 20px;
+				overflow: hidden;
+				margin: 0 60px 0 0;
+			}
+		}
+		.TrackNavAdaptiveTools {
+			display: flex;
+			align-items: center;
+			margin-top: 20px;
+			.AdaptiveToolItem {
+				margin: 0 20px;
+			}
+		}
+	}
+}

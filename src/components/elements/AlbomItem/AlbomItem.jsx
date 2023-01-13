@@ -6,19 +6,15 @@ import share from '../../resources/share.svg'
 import list_plus from '../../resources/list_plus.svg'
 import MyTrackAndAlbum from '../../context/MyTrackAndAlbum'
 import addMyMusic from '../../utils/AddMyMusic'
-const Albom = ({ nameAlbome, executor }) => {
+const Albom = ({ album_id, nameAlbome, executor, albomСover, musiclist }) => {
 	const router = useNavigate()
-	const { myMusic, setMyMusic, albomСover, ...props } = useContext(MyTrackAndAlbum);
+	const { myMusic, setMyMusic } = useContext(MyTrackAndAlbum);
 
 	const addMyMusicAlbum = () => {
-		console.log('props.album_id', props.album_id);
-		console.log('props.albomСover', props.albomСover);
-		console.log('props.nameAlbome', props.nameAlbome);
-		console.log('props.musiclist', props.musiclist);
 
 		const songAlbums = Array.isArray(myMusic.albums) ? myMusic.albums : [];
 		songAlbums.unshift(
-			addMyMusic.addAlbum(props.album_id, props.albomСover, props.nameAlbome, props.musiclist)
+			addMyMusic.addAlbum(album_id, albomСover, nameAlbome, musiclist)
 		)
 		setMyMusic({
 			"albums": songAlbums,
@@ -33,7 +29,7 @@ const Albom = ({ nameAlbome, executor }) => {
 				<div className={cls.albomContentHover_item}>
 					<img src={share} alt="" />
 				</div>
-				<div className={cls.albomContentHover_item} onClick={() => router('/albom/' + (props.album_id))}>
+				<div className={cls.albomContentHover_item} onClick={() => router('/albom/' + (album_id))}>
 					<img src={iconPlay} alt="" />
 				</div>
 				<div className={cls.albomContentHover_item} onClick={addMyMusicAlbum}>

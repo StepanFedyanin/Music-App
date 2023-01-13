@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import AlbomItem from '../AlbomItem/AlbomItem'
 import cls from './AlbomList.module.scss'
-function AlbomLIst({ albomListName, setAlbomListName, ...props }) {
-	const [albomLIst, setAlbomList] = useState(props.Albomlist)
+function AlbomLIst({ Albomlist, albomListName, setAlbomListName, ...props }) {
+	const [albomLIst, setAlbomList] = useState(Albomlist)
 	const [showAlbomList, setShowAlbomList] = useState(true)
 	const [transformAlbomList, setTransformAlbomList] = useState([cls.albomList])
 	const seeMoreAlboms = () => {

@@ -58,13 +58,7 @@ function MusicCategoryContent({ CategoryList }) {
 			<div className={cls.albomContent}>
 				<div className="">
 					<Serch filter={filter} setFilter={setFilter} value="Поиск артистов, треков, альбомов" />
-					<div>
-						<TrackList
-							tracks={tracksSortedList}
-							visible={modal}
-							setVisible={setModal}
-						/>
-					</div>
+
 				</div>
 				<div className={cls.albomTools}>
 					<nav className={cls.albomNav}>

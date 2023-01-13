@@ -36,3 +36,49 @@
 .artistName {
 	@include mixin.STtOpacity;
 }
+@media (max-width: 980px) {
+	.ArtistConteiner {
+		height: 100%;
+		.ArtistContent {
+			width: 70%;
+			.artistInfo {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-bottom: 30px;
+			}
+			.ArtistsWork {
+				width: 70%;
+			}
+		}
+	}
+}
+@media (max-width: 768px) {
+	.ArtistConteiner {
+		height: 100%;
+		padding-top: 85px;
+		.ArtistContent {
+			width: 100%;
+			.artistInfo {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				margin-bottom: 30px;
+			}
+			.ArtistsWork {
+				width: 90%;
+			}
+		}
+	}
+	.preview {
+		margin-top: 10px;
+		max-width: none;
+		border-radius: 20px;
+		overflow: hidden;
+	}
+}
+@media (max-width: 540px) {
+	.ArtistConteiner {
+		padding-top: 10px;
+	}
+}

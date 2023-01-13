@@ -14,8 +14,10 @@ function TracItem(props) {
 	const { myMusic, setMyMusic } = useContext(MyTrackAndAlbum);
 	const [booleanShow, setBooleanShow] = useState(false);
 	const styleText = [cls.trackTitle];
-	// const styleItem = [cls.trackItem]
 	const [styleItem, setStyleItem] = useState([cls.trackItem])
+	if (props.trackName.length > 20) {
+		styleText.push(cls.trackTitleScroll)
+	}
 
 	const OpenTrack = () => {
 		setTrackPlay({
@@ -51,9 +53,7 @@ function TracItem(props) {
 				</div>
 				<div className="">
 					<div className={cls.trackTitleBlock}>
-						<p className={styleText.join(' ')}>{props.trackName
-							.split('-')[1]
-						}</p>
+						<p className={styleText.join(' ')}>{props.trackName.split('-')[1]}</p>
 					</div>
 					<div onClick={(e) => e.stopPropagation()} className={cls.trackExecutorBlock}>
 						<p

@@ -11,15 +11,14 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
-import AristRelatedItem from "../ArtistRelatedItem/AristRelatedItem";
-function Slider({ title, slide, DesignEl, paramsOne, paramsTwo, paramsThree }) {
-	console.log(DesignEl);
+function Slider({ children, length }) {
+	console.log(children);
 	return (
 		<>
 			<Swiper
-				slidesPerView={3}
+				slidesPerView={length}
 				spaceBetween={30}
-				slidesPerGroup={3}
+				slidesPerGroup={2}
 				loop={true}
 				loopFillGroupWithBlank={true}
 				navigation={true}
@@ -27,11 +26,7 @@ function Slider({ title, slide, DesignEl, paramsOne, paramsTwo, paramsThree }) {
 				className="mySwiper"
 			>
 				{
-					slide.map(el =>
-						<SwiperSlide key={slide + el.artist_id}>
-							<DesignEl paramsOne={el.artist_id} paramsTwo={el.thumbnail} paramsThree={el.title} />
-						</SwiperSlide>
-					)
+					children
 				}
 			</Swiper>
 		</>

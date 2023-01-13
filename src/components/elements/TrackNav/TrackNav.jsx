@@ -1,10 +1,9 @@
 import React, { useState, useContext } from 'react'
-import cls from './TrackNav.module.css'
+import cls from './TrackNav.module.scss'
 import nextBtnIcon from '../../resources/nexttreckItem.svg';
 import prefBtnIcon from '../../resources/prefTreckItem.svg';
 import randomBtnIcon from '../../resources/randomTreckItom.svg';
-import trackAdd from '../../resources/trackAdd.svg'
-import trackVoice from '../../resources/trackVoice.svg'
+import coolicon from '../../resources/coolicon.png'
 import LikeIcon from '../../UI/icon/likeicon/LikeIcon';
 import TrackInfo from '../../context/TrackSave';
 import { useEffect } from 'react';
@@ -13,6 +12,7 @@ import GetYouTubeAPI from '../../../API/GetYouTubeAPI';
 import { useRef } from 'react';
 import PlayOrStopTrack from '../PlayOrStopTrack/PlayOrStopTrack';
 import VolumeTrack from '../VolumeTrack/VolumeTrack';
+import TrackNavAdaptive from '../TrackNavAdaptive/TrackNavAdaptive';
 
 
 function TrackNav() {
@@ -23,6 +23,7 @@ function TrackNav() {
 	const [urlTrack, setUrlTrack] = useState();
 	const [loopTrack, seLoopTrack] = useState(false)
 	const [loadPropgresStyle, setLoadPropgresStyle] = useState(cls.trackTimeAwait);
+	const [trackNavInfo, setTrackNavInfo] = useState(false)
 	const audio = useRef('*');
 	const progressBarShow = useRef('*')
 	useEffect(() => {
@@ -93,172 +94,117 @@ function TrackNav() {
 	const changeValueVoice = (value) => {
 		audio.current.volume = value;
 	}
+	const changeTrackNavInfo = (value) => {
+		setTrackNavInfo(value)
+	}
 	return (
-		<div className={cls.TrackNav}>
-			<div className={cls.trackTools}>
-				<div className={cls.toolsIcon}>
-					<button>
-						<img src={randomBtnIcon} alt="" />
-					</button>
-				</div>
-				<div className={cls.toolsIcon}>
-					<button onClick={changeSongPref}>
-						<img src={prefBtnIcon} alt="" />
-					</button>
-				</div>
-				<div className={cls.toolsIcon}>
-					<PlayOrStopTrack
-						playChange={playChange}
-						setPlayChange={setPlayChange}
-						Play={Play}
-					/>
-				</div>
-				<div className={cls.toolsIcon}>
-					<button
-						onClick={changeSongNext}
-					>
-						<img src={nextBtnIcon} alt="" />
-					</button>
-				</div>
-				<div className={cls.toolsIcon}>
-					<RepeatTrack
-						loopTrack={loopTrack}
-						seLoopTrack={seLoopTrack}
-					/>
-				</div>
-			</div>
-			<div className={cls.trackContent}>
-				<div className={cls.trackContentInfo}>
-					<div className={cls.trackCover}>
-						<img src={trackPlay.trackCover} alt="" />
+		<div className={cls.TrackNavContainer} onClick={() => setTrackNavInfo(true)}>
+			<TrackNavAdaptive
+				trackCover={trackPlay.trackCover}
+				trackName={trackPlay.trackName}
+				changeSongPref={changeSongPref}
+				changeSongNext={changeSongNext}
+				playChange={playChange}
+				setPlayChange={setPlayChange}
+				Play={Play}
+				loopTrack={loopTrack}
+				seLoopTrack={seLoopTrack}
+				audio={audio}
+				loadPropgresStyle={loadPropgresStyle}
+				progressBarShow={progressBarShow}
+				trackNavInfo={trackNavInfo}
+				changeTrackNavInfo={changeTrackNavInfo}
+			/>
+			<div className={trackNavInfo ? cls.trackNavHide : cls.TrackNav}>
+				<div className={cls.trackTools + " " + cls.trackToolsAdaptive}>
+					<div className={cls.toolsIcon}>
+						<button>
+							<img src={randomBtnIcon} alt="" />
+						</button>
 					</div>
-					<div className={cls.trackShow}>
-						<div className={cls.trackName}>
-							<div className={cls.trackTitle}>
-								<p className={cls.trackTitleStyle}>{trackPlay.trackName.length > 1 ? trackPlay.trackName.split('-')[0] : ''}</p>
+					<div className={cls.toolsIcon + " " + cls.toolsIconChange}>
+						<button onClick={changeSongPref}>
+							<img src={prefBtnIcon} alt="" />
+						</button>
+					</div>
+					<div className={cls.toolsIcon + " " + cls.toolsIconPlay}>
+						<PlayOrStopTrack
+							playChange={playChange}
+							setPlayChange={setPlayChange}
+							Play={Play}
+						/>
+					</div>
+					<div className={cls.toolsIcon + " " + cls.toolsIconChange}>
+						<button
+							onClick={changeSongNext}
+						>
+							<img src={nextBtnIcon} alt="" />
+						</button>
+					</div>
+					<div className={cls.toolsIcon}>
+						<RepeatTrack
+							loopTrack={loopTrack}
+							seLoopTrack={seLoopTrack}
+						/>
+					</div>
+				</div>
+				<div className={cls.trackContent}>
+					<div className={cls.trackContentInfo}>
+						<div className={cls.trackCover}>
+							<img src={trackPlay.trackCover} alt="" />
+						</div>
+						<div className={cls.trackShow}>
+							<div className={cls.trackName}>
+								<div className={cls.trackTitle}>
+									<p className={trackPlay.trackName.length < 20 ? cls.trackTitleStyle : cls.trackTitleStyle + " " + cls.trackTitleStyleLaik}>{trackPlay.trackName.length > 1 ? trackPlay.trackName.split('-')[1] : ''}</p>
+								</div>
+								<div className={cls.trackExecutor}>
+									<p className={cls.trackExecutorStyle}>{trackPlay.trackName.length > 1 ? trackPlay.trackName.split('-')[0] : ''}</p>
+								</div>
 							</div>
-							<div className={cls.trackExecutor}>
-								<p className={cls.trackExecutorStyle}>{trackPlay.trackName.length > 1 ? trackPlay.trackName.split('-')[0] : ''}</p>
+							<audio
+								ref={audio}
+								className={cls.audioHide}
+								loop={loopTrack}
+								autoplay='autoplay'
+								onTimeUpdate={ProgressBar}
+								src={urlTrack}>
+							</audio>
+						</div>
+					</div>
+					<div className={cls.TrackInfo}>
+						<div className={cls.trackTime}>
+							<p className={cls.trackTimeStyle}>{timePlay}</p>
+						</div>
+						<div className={cls.trackTimeBarContainer}>
+							<div className={loadPropgresStyle}>
+								<div ref={progressBarShow} className={cls.trackTimeBarBefore}>
+								</div>
 							</div>
 						</div>
-						<audio
-							ref={audio}
-							className={cls.audioHide}
-							loop={loopTrack}
-							autoplay='autoplay'
-							onTimeUpdate={ProgressBar}
-							src={urlTrack}>
-						</audio>
-					</div>
-				</div>
-				<div className={cls.TrackInfo}>
-					<div className={cls.trackTime}>
-						<p className={cls.trackTimeStyle}>{timePlay}</p>
-					</div>
-					<div className={loadPropgresStyle}>
-						<div ref={progressBarShow} className={cls.trackTimeBarBefore}>
+						<div className={cls.trackAllTime}>
+							<p className={cls.trackTimeStyle}>{
+								(Math.floor(trackPlay.duration / 60)) + ":" + (Math.floor(trackPlay.duration % 60))
+							}</p>
 						</div>
 					</div>
-					<div className={cls.trackAllTime}>
-						<p className={cls.trackTimeStyle}>{
-							(Math.floor(trackPlay.duration / 60)) + ":" + (Math.floor(trackPlay.duration % 60))
-						}</p>
+				</div>
+				<div className={cls.trackSetting}>
+					<div className={cls.toolsIcon}>
+						<LikeIcon />
+					</div>
+					<div className={cls.toolsIcon}>
+						<VolumeTrack
+							changeValueVoice={changeValueVoice} />
+					</div>
+					<div className={cls.toolsIcon + " " + cls.toolsIconMoInfo}>
+						<img src={coolicon} alt="" />
 					</div>
 				</div>
-			</div>
-			<div className={cls.trackSetting}>
-				<div className={cls.toolsIcon}>
-					<LikeIcon />
-				</div>
-				<div className={cls.toolsIcon}>
-					<VolumeTrack
-						changeValueVoice={changeValueVoice} />
-				</div>
-				<div className={cls.toolsIcon}>:</div>
 			</div>
 		</div>
+
 	)
 }
 export default TrackNav
 
-// const Stop = () => {
-// 	const audio = document.getElementById('audio');
-// 	audio.pause();
-// 	setPlayChange(false);
-// }
-// const Play = () => {
-// 	const audio = document.getElementById('audio');
-// 	audio.play();
-// 	setPlayChange(true);
-// }
-// useEffect(() => {
-// 	if (trackPlay.work) {
-// 		Play();
-// 	} else {
-// 		Stop();
-// 	}
-// 	changeLoadProgresBar();
-// }, [trackPlay.work])
-// const changeLoadProgresBar = () => {
-// 	const audio = document.getElementById('audio');
-// 	// audio.currentTime = trackPlay.trackTimeNow
-// }
-// const ProgressUpdate = () => {
-// 	const audio = document.getElementById('audio');
-// 	setTrackPlay({
-// 		// "trackTimeNow": audio.currentTime,
-// 		// "work": trackPlay.work,
-// 		// "ChouseTrack": trackPlay.ChouseTrack,
-// 		// "trackCover": trackPlay.trackCover,
-// 		// "trackExecutor": trackPlay.trackExecutor,
-// 		// "trackLink": trackPlay.tracklink,
-// 		// "trackName": trackPlay.trackName,
-// 		// "idChouseTrack": trackPlay.idChouseTrack
-// 		"work": Boolean,
-// 		"id_song": String,
-// 		"trackCover": String,
-// 		"trackName": String,
-// 		"trackList": Array
-// 	})
-// 	ProgressBar(audio);
-// }
-
-// const ProgressBar = (audio) => {
-// 	const progressBarShow = document.getElementById('rackTimeBarAfter');
-// 	progressBarShow.style.width = (audio.currentTime / audio.duration * 100) + '%';
-// 	let PlayTime = Math.round(audio.currentTime);
-// 	let PlayTimeShow = '0:00'
-// 	if (PlayTime < 60) {
-// 		if (PlayTime / 10 >= 1) {
-// 			PlayTimeShow = '0:' + PlayTime % 60;
-// 		} else {
-// 			PlayTimeShow = '0:0' + PlayTime % 60;
-// 		}
-// 	} else {
-// 		if (PlayTime % 60 / 10 >= 1) {
-// 			PlayTimeShow = (Math.round(PlayTime / 60) + ":" + PlayTime % 60);
-// 		} else {
-// 			PlayTimeShow = (Math.round(PlayTime / 60) + ":0" + PlayTime % 60).toString();
-// 		}
-// 	}
-// 	setTimePlay(PlayTimeShow);
-// 	setTimePlayAll(Math.floor(audio.duration / 60) + ':' + Math.round(audio.duration % 60));
-// }
-// const PrefTrack = () => {
-// 	if (idTrackPlay != 0 || idTrackPlay < 0) {
-// 		setIdTrackPlay(Number(idTrackPlay - 1))
-// 	} else {
-// 		setIdTrackPlay(trackPlay.ChouseTrack[0].albomList.length - 1);
-// 	}
-// 	overwritingContext(trackPlay.ChouseTrack[0].albomList);
-// }
-// const NextTrack = () => {
-// 	console.log(trackPlay.work);
-// 	if (idTrackPlay != trackPlay.ChouseTrack[0].albomList.length - 1) {
-// 		setIdTrackPlay(Number(idTrackPlay + 1));
-
-// 	} else {
-// 		setIdTrackPlay(0);
-// 	}
-// 	overwritingContext(trackPlay.ChouseTrack[0].albomList);
-// }
